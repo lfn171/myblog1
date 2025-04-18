@@ -16,7 +16,7 @@ app = Flask(__name__,
             static_folder='../assets',
             static_url_path='/assets'
             )
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqldb://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}'
 app.config['SECRET_KEY'] = 'YQYyqy171171'
 db =SQLAlchemy(app)
 login_manager = LoginManager(app)
