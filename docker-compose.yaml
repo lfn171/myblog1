@@ -17,7 +17,8 @@ services:
       - /opt/myblog_data:/opt/myblog/data
     depends_on:
       mysql_server:
-          condition: service_healthy
+        condition: service_healthy
+    command: ["sh", "-c", "sleep 20 && your_start_command"]  # 延迟启动以确保 MySQL 完全启动
 
   mysql_server:
     image: mysql:8.0
@@ -28,6 +29,6 @@ services:
       MYSQL_ROOT_PASSWORD: YQYyqy171171
       MYSQL_DATABASE: myblog_db
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
