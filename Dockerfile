@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM 20.04
 
 COPY . /opt/myblog/
 
